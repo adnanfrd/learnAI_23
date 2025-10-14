@@ -1,0 +1,11 @@
+name = "learnai"
+compatibility_date = "2024-09-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+
+[[d1_databases]]
+binding = "DB"
+database_name = "db"
+database_id = "6d7be387-58f2-45d6-aa51-a12669a2dfc9"
+
