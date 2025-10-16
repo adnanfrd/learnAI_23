@@ -5,11 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
     "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "bun pages:build && wrangler pages dev",
-    "deploy": "bun pages:build && wrangler pages deploy",
+    "preview": "npm run build && wrangler pages dev .vercel/output/static",
+    "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
     "setup": "bun run scripts/setup.ts",
     "validate-env": "bun run scripts/validate-env.ts",
