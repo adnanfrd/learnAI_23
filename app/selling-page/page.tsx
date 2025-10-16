@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function SellingPage() {
-  // State for countdown timer
   const [timeLeft, setTimeLeft] = useState({ minutes: 0, seconds: 0 });
 
   useEffect(() => {
