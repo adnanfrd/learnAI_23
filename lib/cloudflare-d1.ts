@@ -54,6 +54,9 @@ function validateEnvVars(env: CloudflareEnv): void {
 export async function queryD1<T = unknown>(sql: string, params: unknown[] = []): Promise<T[]> {
   try {
     const env = getEnvVars();
+    console.log("env.CLOUDFLARE_D1_ACCOUNT_ID", env.CLOUDFLARE_D1_ACCOUNT_ID);
+    console.log("env.CLOUDFLARE_DATABASE_ID", env.CLOUDFLARE_DATABASE_ID);
+    console.log("env.CLOUDFLARE_D1_API_TOKEN", env.CLOUDFLARE_D1_API_TOKEN);
     validateEnvVars(env);
     
     const API_URL = `https://api.cloudflare.com/client/v4/accounts/${env.CLOUDFLARE_D1_ACCOUNT_ID}/d1/database/${env.CLOUDFLARE_DATABASE_ID}/query`;
@@ -61,7 +64,7 @@ export async function queryD1<T = unknown>(sql: string, params: unknown[] = []):
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.CLOUDFLARE_D1_API_TOKEN}`,
+        'Authorization': `Bearer ${env.CLOUDFLARE_D1_API_TOKEN}`,  
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ sql, params })
